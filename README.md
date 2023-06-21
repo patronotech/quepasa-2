@@ -136,11 +136,9 @@ WIDGET_BRAND_URL
 
 **Manual de Instalação N8N**
 
-
 </p>
-sudo apt update && sudo apt upgrade y
+cd
 </p>
-node -v
 </p>
 sudo npm install n8n -g
 </p>
@@ -213,50 +211,37 @@ export N8N_EDITOR_BASE_URL=https://seudominio.com.br
 export WEBHOOK_URL=https://seudominio.com.br
 </p>
 nano .env
-
-**Abaixo altere
 </p>
-C8Q_QP_DEFAULT_USER=coloque email do Quepasa, 
-</p>
-C8Q_CW_PUBLIC_URL=dominiochatwoot
-</p>
-C8Q_QP_CONTACT+Seu email
-</p>
-
-</p></p>
-C8Q_SINGLETHREAD=false
-</p>
-C8Q_QUEPASAINBOXCONTROL=1001
-</p>
-C8Q_GETCHATWOOTCONTACTS=1002
-</p>
-C8Q_QUEPASACHATCONTROL=1003
-</p>
-C8Q_CHATWOOTPROFILEUPDATE=1004
-</p>
-C8Q_POSTTOWEBCALLBACK=1005
-</p>
-C8Q_POSTTOCHATWOOT=1006
-</p>
-C8Q_CHATWOOTTOQUEPASAGREETINGS=
+Altere as seguintes variaveis baixo no arquivo .env
 </p>
 C8Q_QP_DEFAULT_USER=coloque email do Quepasa
 </p>
-C8Q_CW_PUBLIC_URL="chatwoot.seudomnio.com.br"
+C8Q_CW_PUBLIC_URL=dominiochatwoot
 </p>
-C8Q_QP_DEFAULT_USER="nome@seudomnio.com.br"
+C8Q_QP_CONTACT=Seu email
 </p>
+
+```
+C8Q_SINGLETHREAD=false
+C8Q_QUEPASAINBOXCONTROL=1001
+C8Q_GETCHATWOOTCONTACTS=1002
+C8Q_QUEPASACHATCONTROL=1003
+C8Q_CHATWOOTPROFILEUPDATE=1004
+C8Q_POSTTOWEBCALLBACK=1005
+C8Q_POSTTOCHATWOOT=1006
+C8Q_CHATWOOTTOQUEPASAGREETINGS=1007
+C8Q_CW_PUBLIC_URL="chatwoot.seudominio.com.br"
+C8Q_QP_DEFAULT_USER="contatoo@seudominio.com.br"
 C8Q_QP_BOTTITLE="Chatwoot"
+C8Q_QP_CONTACT="contato@seudominio.com.br"
+```
+
 </p>
-C8Q_QP_CONTACT="nome@seudomnio.com.br"
+cp .env /root
+</p>
 </p>
 pm2 restart all --update-env
 </p>
-cd
-</p>
-ln -s ./.n8n/.env .en
-</p>
-
 
 
 <hr />
@@ -266,14 +251,14 @@ ln -s ./.n8n/.env .en
 
 </p>
 
+</p>
+cd
+</p>
+</p>
+
 ```
-# Clonar GitHub
 git clone https://github.com/nocodeleaks/quepasa /opt/quepasa-source
-
-# Instalando API Quepasa
 bash /opt/quepasa-source/helpers/install.sh
-
-# Importanto Worflows Automatico
 bash /opt/quepasa-source/helpers/update-workflows.sh
 ```
 
@@ -330,7 +315,15 @@ sudo service nginx restart
 
 nano /opt/quepasa-source/src/.env
 </p>
-Alterar linha 1
+Adicione linha 1
+</p>
+APP_TITLE=Nome da Sua Empresa
+</p>
+</p>
+
+</p>
+
+Alterar linha 2
 </p>
 WEBSOCKETSSL=false
 </p>
@@ -342,15 +335,6 @@ systemctl restart quepasa
 </p>
 
 <hr />
-
-Opcional 
-
-nano /opt/quepasa-source/src/.env
-
-Linha 1 adicione variavel 
-
-APP_TITLE=Nome da Sua Empresa
-
 <hr />
 
 ***Execute esse processo abaixo parra deixar mais rapida sua API**
@@ -364,6 +348,10 @@ Adicione isso na primeira linha
 
 **Instalação Finalizadas**
 
+</p>
+chatwoot.seudominio.com.br
+</p>
+n8n.seudominio.com.br
 </p>
 quepa.dominio.com.br/setup
 </p>
@@ -410,7 +398,7 @@ Leia QRCODE
 </p>
 Opcional se não chamar Qrcode
 </p>
-sudo add-apt-repository ppa:redislabs/
+sudo add-apt-repository ppa:redislabs
 </p>
 sudo apt update
 </p>
