@@ -1,164 +1,203 @@
 <p align="center">
-	<img src="https://github.com/nocodeleaks/quepasa/raw/main/src/assets/favicon.png" alt="Quepasa-logo" width="100" />	
-	<p align="center">Quepasa é um software de código aberto, totalmente gratuito, para troca de mensagens com a plataforma Whatsapp</p>
+<img src="https://cwmkt.com.br/wp-content/uploads/2023/08/logo-github-cwmkt.svg" alt="DispZap Whats Marketing" width="240" />
+<p align="center">Seja bem-vindo ao Guia de Instalação Chatwoot+N8N+Quepasa 🚀</p>
 </p>
-<hr />
-<p align="left">
-</p>
-<hr />
-<p align="left">
-	<img src="https://whatsapp.com/favicon.ico" alt="WhatsAPP-logo" width="32" />
-	<span>Grupo WhatsaAPP Chatwoot : </span>
-	<a href="https://chat.whatsapp.com/CLKge3hmHmmBcIL04mBzmT" target="_blank">Grupo</a>
-<hr />
-<p align="left">
-	<img src="https://whatsapp.com/favicon.ico" alt="WhatsAPP-logo" width="32" />
-	<span>Grupo WhatsaAPP Quepasa: </span>
-	<a href="https://chat.whatsapp.com/Cv5WfmujRzE09yQ6hagYim" target="_blank">Grupo</a>
-</p>
-<hr />
-<p align="left">
-	<img src="https://whatsapp.com/favicon.ico" alt="WhatsAPP-logo" width="32" />
-	<span>Grupo WhatsaAPP N8N: </span>
-	<a href="https://telinkei.com/gp-n8n-zap" target="_blank">Grupo</a>
-</p>
-<hr />
-<hr />
-
-**Gostou do Tutorial? Faça sua Contribuição**
-
-<img src="https://github.com/EngajamentoFlow/quepasa/blob/main/Contribui%C3%A7%C3%A3o.png" alt="Quepasa-logo" width="200" />
+  
+<p align="center">
+<img src="https://whatsapp.com/favicon.ico" alt="WhatsAPP-logo" width="32" />
+<span>Grupo WhatsaAPP: </span>
+<a href="https://link.cwmkt.com.br/grupo-whats" target="_blank">Grupo</a>
 </p>
 
-**PIX CNPJ**
-
-```
-45959142000119	
-```
-
 <hr />
 <hr />
 
 
-**Manual de Instalação ChatWoot**
+<details>
+<summary>Manual de Instalação Chatwoot</summary>
 
+### Atualize sua máquina com os últimos pacotes
+
+```bash
 sudo apt update && apt upgrade -y
-</p>
-wget https://get.chatwoot.app/linux/install.sh
-</p>
-chmod +x install.sh
-</p>
-./install.sh --install
-</p>
-Use as opções abaixo
-</p>
-yes
-</p>
-chatwoot.dominio.com.br
-</p>
-contato@dominio.com.br
-</p>
-yes para todos
-</p>
-<hr />
-
-**Alterando Idioma e ativando sua tela de cadastro**
-
-</p>
-cd /home/chatwoot/chatwoot
-</p>
-nano .env
-</p>
-Altere a linha
-</p>
-DEFAULT_LOCALE=pt_BR
-</p>
-ENABLE_ACCOUNT_SIGNUP=true
-</p>
-sudo systemctl restart chatwoot.target
-</p>
-Acesse: seudominio.com.br
-</p>
-Faça seu cadastro
-</p>
-
-<hr />
-
-**Habilitando configurações ocultas do Chatwoot**
-
-</p>
-No banco de dados PostgreSQL
-</p>
-sudo -u postgres psql
-</p>
-\c chatwoot_production
-</p>
-update installation_configs set locked = false;
-</p>
-\q
-</p>
-
-<hr />
-
-**NOMES CHATWOOT TERMOS E POLITICA DE PRIVACIDADE**
-
-**Acesse super Admin**
-</p>
-https://seudominio.com.br/super_admin
-</p>
-Opção>installation_configs
-</p>
-LOGO
-</p>
-LOGO_THUMBNAIL
-</p>
-NOMES CHATWOOT:
-</p>
-Alterando nomes na plataforma
-</p>
-INSTALLATION_NAME
-</p>
-BRAND_NAME
-</p>
-TERMOS E POLITICA DE PRIVACIDADE
-</p>
-TERMS_URL
-</p>
-PRIVACY_URL
-</p>
-BRAND_URL
-</p>
-WIDGET_BRAND_URL
-</p>
-
-<hr />
-<hr />
-
-**Manual de Instalação N8N**
-
-</p>
-cd
-</p>
-</p>
-sudo npm install n8n -g
-</p>
-npm update -g n8n
-</p>
-</p>
-npm install pm2 -g
-</p>
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-</p>
-sudo apt install ./google-chrome-stable_current_amd64.deb
-</p>
-sudo nano /etc/nginx/sites-available/n8n
-</p>
-</p>
-</p>
-
 ```
+
+### Baixe o instalador automático do Chatwoot
+
+```bash
+wget https://get.chatwoot.app/linux/install.sh
+```
+
+### Execute a permisão no arquivo install.sh
+
+```bash
+chmod +x install.sh
+```
+
+### Inicie a instalação, digite "yes" para SSL, em seguida digite seu dominio e prossiga confimando com yes.
+### Esse processo vai levar média ~ 15
+
+  ```bash
+./install.sh --install
+  ```
+
+Use as opções abaixo
+
+yes
+
+app.dominio.com.br
+
+contato@dominio.com.br
+
+yes para todos
+
+### Alterando Idioma e ativando sua tela de cadastro
+
+```bash
+nano /home/chatwoot/chatwoot/.env
+```
+
+Altere a linha:
+
+`DEFAULT_LOCALE=pt_BR` para `ENABLE_ACCOUNT_SIGNUP=true`
+
+```bash
+systemctl daemon-reload && systemctl restart chatwoot.target
+```
+
+Acesse: app.seudominio.com.br
+
+Faça seu cadastro
+
+### Habilitando configurações ocultas do Chatwoot no banco de dados PostgreSQL
+
+```bash
+sudo -i -u postgres psql
+\c chatwoot_production
+```
+
+```bash
+update installation_configs set locked = false;
+```
+
+```bash
+\q
+```
+
+</details>
+
+<details>
+<summary>Manual de Instalação N8N</summary>
+
+#### Para seu Chatwoot funcionar corretamente com API Quepasa, instale a versão abaixo compativél
+
+Migração de banco de dados sqlite para Postgres
+
+### Criando Banco de dados Usuario e Senha
+
+```bash
+sudo -i -u postgres psql
+```
+
+```bash
+CREATE ROLE n8n_user WITH LOGIN PASSWORD 'SenhaAqui';
+```
+
+```bash
+CREATE DATABASE n8n_db;
+```
+
+```bash
+GRANT ALL PRIVILEGES ON DATABASE n8n_db TO n8n_user;
+```
+
+```bash
+GRANT CONNECT ON DATABASE n8n_db TO n8n_user;
+```
+
+```bash
+\q
+```
+
+### Remova Node.js instalado pelo Chatwoot
+
+```bash
+sudo apt-get remove nodejs
+```
+
+```bash
+sudo apt-get purge nodejs
+```
+
+```bash
+sudo apt-get autoremove
+```
+
+### Instale a versão v18.x
+Baixe e importe a chave Nodesource GPG
+
+```bash
+sudo apt-get update
+```
+
+```bash
+sudo apt-get install -y ca-certificates curl gnupg
+```
+
+```bash
+sudo mkdir -p /etc/apt/keyrings
+```
+
+```bash
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+```
+
+Criar repositório deb
+
+```bash
+NODE_MAJOR=18
+```
+
+```bash
+echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+```
+
+Execute a atualização e instale
+
+```bash
+sudo apt-get update
+```
+
+```bash
+sudo apt-get install nodejs -y
+```
+### Instale a última versão do n8n
+
+> A versão estavél do n8n até o momento é 1.3.1, que necessita do Node.js v18.x
+
+```bash
+sudo npm install -g n8n
+```
+
+```bash
+npm install pm2 -g
+```
+
+```bash
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+```
+
+```bash
+sudo apt install ./google-chrome-stable_current_amd64.deb
+```
+
+```bash
+sudo nano /etc/nginx/sites-available/n8n
+```
+
+```bash
 server {
-  server_name n8n.dominio.com;
+  server_name conector.dominio.com.br;
   
   underscores_in_headers on;
 
@@ -185,43 +224,57 @@ server {
 } 
   ```
 
-</p>
-</p>
-</p>
+```bash
 sudo ln -s /etc/nginx/sites-available/n8n /etc/nginx/sites-enabled
-</p>
+```
+
+```bash
 sudo certbot --nginx
-</p>
+```
+
+```bash
 sudo service nginx restart
-</p>
-</p>
+```
+
+```bash
 pm2 start n8n --cron-restart="0 0 * * *" -- start
-</p>
+```
 
-**EXECUTE COMANDO ABAIXO PARA NÃO CAIR QUANDO REINICIAR A VPS**
+### Execute esse comando abaixo para não cair seu n8n quando você reiniciar sua VPS
 
-</p>
+```bash
 sudo pm2 startup ubuntu -u root && sudo pm2 startup ubuntu -u root --hp /root && sudo pm2 save
-</p>
-cd /root/.n8n
-</p>
-</p>
-export N8N_EDITOR_BASE_URL=https://seudominio.com.br
-</p>
-export WEBHOOK_URL=https://seudominio.com.br
-</p>
-nano .env
-</p>
-Altere as seguintes variaveis baixo no arquivo .env
-</p>
+```
+
+```bash
+nano /root/.n8n/.env
+```
+
+Altere as seguintes variaveis baixo no arquivo `.env`
+
+DB_POSTGRESDB_PASSWORD=SenhaAqui
+
 C8Q_QP_DEFAULT_USER=coloque email do Quepasa
-</p>
-C8Q_CW_PUBLIC_URL=dominiochatwoot
-</p>
+
+C8Q_QP_BOTTITLE=Nome do seu site
+
+C8Q_CW_PUBLIC_URL=domniochatwoot
+
 C8Q_QP_CONTACT=Seu email
-</p>
+
+C8Q_QP_DEFAULT_USER=Seu email
+
+WEBHOOK_URL=https://conector.dominio.com.br
+
+N8N_EDITOR_BASE_URL=https://conector.dominio.com.br
 
 ```
+DB_TYPE=postgresdb
+DB_POSTGRESDB_HOST=localhost
+DB_POSTGRESDB_PORT=5432
+DB_POSTGRESDB_USER=n8n_user
+DB_POSTGRESDB_PASSWORD=SenhaAqui
+DB_POSTGRESDB_DATABASE=n8n_db
 C8Q_SINGLETHREAD=false
 C8Q_QUEPASAINBOXCONTROL=1001
 C8Q_GETCHATWOOTCONTACTS=1002
@@ -231,30 +284,32 @@ C8Q_POSTTOWEBCALLBACK=1005
 C8Q_POSTTOCHATWOOT=1006
 C8Q_CHATWOOTTOQUEPASAGREETINGS=1007
 C8Q_CW_PUBLIC_URL="chatwoot.seudominio.com.br"
-C8Q_QP_DEFAULT_USER="contatoo@seudominio.com.br"
+C8Q_QP_DEFAULT_USER="contato@seudominio.com.br"
 C8Q_QP_BOTTITLE="Chatwoot"
 C8Q_QP_CONTACT="contato@seudominio.com.br"
+N8N_EDITOR_BASE_URL="https://conector.dominio.com.br"
+WEBHOOK_URL="https://conector.dominio.com.br"
+EXECUTIONS_DATA_PRUNE=true
+EXECUTIONS_DATA_MAX_AGE=168
+EXECUTIONS_DATA_PRUNE_MAX_COUNT=5000
+GENERIC_TIMEZONE="America/Sao_Paulo"
 ```
 
-</p>
-cp .env /root
-</p>
-</p>
+### Cria um link simbólico chamado ".env" que aponta para o arquivo "./.n8n/.env" no sistema de arquivos.
+
+```bash
+ln -s ./.n8n/.env .env
 pm2 restart all --update-env
-</p>
+```
 
+OBS: Não crie sua conta agora, antes de instalar API Quepasa!
 
-<hr />
-<hr />
+</details>
 
-**Manual de Instalação API Quepasa**
+<details>
+<summary>Manual de Instalação API Quepasa</summary>
 
-</p>
-
-</p>
-cd
-</p>
-</p>
+#### Instalação da API e importação dos worflows automáticos
 
 ```
 git clone https://github.com/nocodeleaks/quepasa /opt/quepasa-source
@@ -262,15 +317,11 @@ bash /opt/quepasa-source/helpers/install.sh
 bash /opt/quepasa-source/helpers/update-workflows.sh
 ```
 
-
-</p>
-
-</p>
+```bash
 sudo nano /etc/nginx/sites-available/quepasa
-</p>
-
-
 ```
+
+```bash
 server {
 
   server_name quepasa.dominio.com.br;
@@ -300,129 +351,126 @@ server {
   }
 ```
 
+```bash
 sudo ln -s /etc/nginx/sites-available/quepasa /etc/nginx/sites-enabled
-</p>
-</p>
+```
+
+```bash
 sudo certbot --nginx
-</p>
+```
+
+```bash
 sudo service nginx restart
-</p>
-</p>
+```
 
-<hr />
+### Ativando SSL da API Quepasa
 
-**Ativando SSL da API Quepasa**
-
+```bash
 nano /opt/quepasa-source/src/.env
-</p>
-Adicione linha 1
-</p>
-APP_TITLE=Nome da Sua Empresa
-</p>
-</p>
+```
 
-</p>
+Adicione na linha 1 `APP_TITLE=Nome da Sua Empresa`
 
-Alterar linha 2
-</p>
-WEBSOCKETSSL=false
-</p>
-para
-</p>
-WEBSOCKETSSL=true
-</p>
+Alterar linha 2 de `WEBSOCKETSSL=false` para `WEBSOCKETSSL=true`
+
+```bash
 systemctl restart quepasa
-</p>
+```
 
-<hr />
-<hr />
+Agora sim! Tá liberado para fazer o cadastro no n8n na Quepasa 😎
 
-***Execute esse processo abaixo parra deixar mais rapida sua API**
+</details>
 
-nano /etc/hosts
+<details>
+<summary>Opcional 1: Instalação do Redis</summary>
 
-Adicione isso na primeira linha 
-127.0.0.1       localhost app.dominio.com.br conector.dominio.com.br api.dominio.com.br
-
-<hr />
-
-**Instalação Finalizadas**
-
-</p>
-chatwoot.seudominio.com.br
-</p>
-n8n.seudominio.com.br
-</p>
-quepa.dominio.com.br/setup
-</p>
-Faça os cadastros em todos eles
-</p>
-
-</p>
-
-
-<hr />
-<hr 
-
-**Configue os Worflows no N8N**
-
-Adicione nodes ao seu N8N
-</p>
-n8n-nodes-chatwoot
-</p>
-n8n-nodes-quepasa
-</p>
-Acesse opção Credenciais, adicione suas credenciais Postgres, salve.
-</p>
-
-<hr />
-
-**Instalando Redis**
-
-</p>
+```bash
 sudo add-apt-repository ppa:redislabs/redis
-</p>
+```
+
+```bash
 sudo apt update
-</p>
+```
+
+```bash
 sudo apt install redis
-</p>
+```
+
+```bash
 sudo apt-get install libvips
-</p>
+```
 
-<hr />
-</p>
+```bash
+reboot
+```
+
+</details>
 
 
-**Criando sua Caixa de Entrada**
+<details>
+<summary>Opcional 2: Configurações no super_admin</summary>
 
-</p>
+#### Acesse super Admin
+
+https://app.seudominio.com.br/super_admin
+
+Navegue até a opção > installation_configs
+
+```bash
+LOGO
+LOGO_THUMBNAIL
+NOMES CHATWOOT:
+```
+
+### Alterando nomes na Plataforma
+
+```bash
+INSTALLATION_NAME
+BRAND_NAME
+TERMOS E POLITICA DE PRIVACIDADE
+TERMS_URL
+PRIVACY_URL
+BRAND_URL
+WIDGET_BRAND_URL
+```
+</details>
+
+### Instalações finalizadas ✅
+
+Configue os Worflows no N8N
+
+Adicione os community nodes ao seu N8N
+
+```bash
+n8n-nodes-chatwoot
+```
+
+```bash
+n8n-nodes-quepasa
+```
+
+Acesse opção Credenciais, adicione suas credenciais Postgres, salve.
+
+### Criando sua Caixa de Entrada
+
 Envia uma mensagem para Contato Criado
-</p>
+
+```bash
 Quepasa Control
-</p>
+```
+Digitando o comando abaixo
+
+```bash
 /qrcode
-</p>
+```
+
 Leia QRCODE
-</p>
-<hr />
-<hr />
 
-**Pronto tudo Funcionando**
+### Ajustar Fuso Horário do servidor
 
-<hr />
-<hr />
-
-**Gostou do Tutorial? Faça sua Contribuição**
-
-<img src="https://github.com/EngajamentoFlow/quepasa/blob/main/Contribui%C3%A7%C3%A3o.png" alt="Quepasa-logo" width="200" />
-</p>
-
-
-**PIX CNPJ**
-
-```
-45959142000119	
+```bash
+dpkg-reconfigure tzdata
 ```
 
-<hr />
-<hr />
+
+**Pronto tudo Funcionando** ✅😎
